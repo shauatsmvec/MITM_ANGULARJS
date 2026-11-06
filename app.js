@@ -3,24 +3,22 @@ var app = angular.module("myApp", []);
 app.controller("myCtrl", function($scope) {
 
     $scope.student = {};
-    $scope.submitted =  false ;
+    $scope.submitted = false;
 
-    $scope.submit = function(){
+    $scope.submit = function() {
         $scope.submitted = true;
     };
+
 });
 
-
-//custom filters
-
-app.filter("uppercase", function() {
+// Custom Filter
+app.filter("uppercaseText", function() {
     return function(text) {
         return text ? text.toUpperCase() : "";
     };
 });
 
-//custom directives
-
+// Custom Directive
 app.directive("highlight", function() {
     return {
         link: function(scope, element) {
