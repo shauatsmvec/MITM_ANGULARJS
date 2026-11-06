@@ -2,12 +2,29 @@ var app = angular.module("myApp", []);
 
 app.controller("myCtrl", function($scope) {
 
-    $scope.today = new Date();
+    $scope.student = {};
+    $scope.submitted =  false ;
 
-    $scope.products = [
-        { name: "Laptop", price: 50000 },
-        { name: "Mobile", price: 20000 },
-        { name: "Tablet", price: 1000 }
-    ];
+    $scope.submit = function(){
+        $scope.submitted = true;
+    };
+});
 
+
+//custom filters
+
+app.filter("uppercase", function() {
+    return function(text) {
+        return text ? text.toUpperCase() : "";
+    };
+});
+
+//custom directives
+
+app.directive("highlight", function() {
+    return {
+        link: function(scope, element) {
+            element.css("color", "blue");
+        }
+    };
 });
